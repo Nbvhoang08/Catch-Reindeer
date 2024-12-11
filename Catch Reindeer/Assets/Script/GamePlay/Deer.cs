@@ -15,6 +15,7 @@ public class Deer : MonoBehaviour
     private Charecter player ;
     private Transform pen; // Chuồng của player
     SpriteRenderer sprite;
+    public DeerSpawner spawner;
     private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
@@ -37,9 +38,10 @@ public class Deer : MonoBehaviour
                 sprite.flipX = true;
                 transform.Translate(Vector3.right * speed * Time.deltaTime);
                 transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-                if (transform.position.x > screenWidth )
+                if (transform.position.x > screenWidth+3 )
                 {
                     movingRight = false;
+                    speed = Random.Range(1, 3);
                 }
             }
             else
@@ -47,9 +49,10 @@ public class Deer : MonoBehaviour
                 sprite.flipX = false;
                 transform.Translate(Vector3.left * speed * Time.deltaTime);
                 transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-                if (transform.position.x < -screenWidth)
+                if (transform.position.x <= -screenWidth-3)
                 {
                     movingRight = true;
+                    speed = Random.Range(1, 3);
                 }
             }
             yield return null;
@@ -60,12 +63,15 @@ public class Deer : MonoBehaviour
             // Di chuyển theo player
             if (player.GetComponent<Charecter>().Caught)
             {
-                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, speed * Time.deltaTime);
+                transform.position = Vector3.MoveTowards(transform.position, player.transform.position, 3* Time.deltaTime);
             }
             else
             {
-                transform.position = player.Cage.transform.position;
+                float randomPos = Random.Range(-1f, 0.9f);
+                Vector3 CagePos = new Vector3(player.Cage.transform.position.x + randomPos, -3.15f, 0);
+                transform.position = CagePos;
                 player = null;
+                spawner.RemoveDeer(this.gameObject);
                 break;
             }
             
@@ -80,10 +86,8 @@ public class Deer : MonoBehaviour
             isCaught = true;
             player = collision.GetComponent<Charecter>();
             collision.GetComponent<Charecter>().Caught = true;
-        }
-        
-
-        
+            SoundManager.Instance.PlayVFXSound(0);
+        } 
     }
 
     

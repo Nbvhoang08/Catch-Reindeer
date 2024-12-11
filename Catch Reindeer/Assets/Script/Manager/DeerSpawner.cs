@@ -10,9 +10,14 @@ public class DeerSpawner : MonoBehaviour
     private int maxDeerCount = 5; // Số lượng hươu tối đa chưa bị bắt
     private List<GameObject> deerList = new List<GameObject>();
 
+    private void Awake()
+    {
+        screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
+    }
     void Start()
     {
         StartCoroutine(SpawnDeer());
+       
     }
 
     IEnumerator SpawnDeer()
@@ -29,9 +34,10 @@ public class DeerSpawner : MonoBehaviour
 
     void SpawnSingleDeer()
     {
-        Vector3 spawnPosition = new Vector3(-screenWidth / 2, 0, 0); // Không cần random theo trục dọc
+        Vector3 spawnPosition = new Vector3(-screenWidth , transform.position.y, 0); // Không cần random theo trục dọc
         GameObject deer = Instantiate(deerPrefab, spawnPosition, Quaternion.identity);
         deer.GetComponent<Deer>().Initialize(screenWidth);
+        deer.GetComponent<Deer>().spawner = this.GetComponent<DeerSpawner>();
         deerList.Add(deer);
     }
 

@@ -14,6 +14,7 @@ public class Charecter : MonoBehaviour
             if(collision.gameObject == Cage && Caught)
             {
                 Caught = false;
+                SoundManager.Instance.PlayVFXSound(1);
             }
         }
     }

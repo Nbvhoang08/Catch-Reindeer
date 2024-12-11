@@ -16,7 +16,7 @@ public class BouncingPad : MonoBehaviour
             {
                 // Đẩy người chơi lên
                 playerRb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
-
+                SoundManager.Instance.PlayVFXSound(3);
                 // Kích hoạt hiệu ứng đệm nhún
                 if (padAnimator != null)
                 {

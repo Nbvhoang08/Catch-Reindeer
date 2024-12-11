@@ -19,7 +19,11 @@ public class GamePlayCanvas : UICanvas
             player = FindAnyObjectByType<PlayerMove>();
         }
     }
-
+    public void PauseBtn()
+    {
+        Time.timeScale = 0;
+        UIManager.Instance.OpenUI<PauseCanvas>();
+    }
     public void SetMove(float horrizontal)
     {
         player.horizontalInput = horrizontal;

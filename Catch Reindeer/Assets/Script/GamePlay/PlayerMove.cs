@@ -50,6 +50,7 @@ public class PlayerMove : MonoBehaviour
     {
         // Di chuyển và nhảy trong FixedUpdate để đảm bảo physics smooth
         HandleMovement();
+        ClampPosition();
     }
 
     void HandleInput()
@@ -111,8 +112,12 @@ public class PlayerMove : MonoBehaviour
     // Giới hạn di chuyển (tuỳ chọn)
     void ClampPosition()
     {
+        // Lấy kích thước của màn hình
+        float screenWidth = Camera.main.orthographicSize * Camera.main.aspect;
+
+        // Giới hạn vị trí của người chơi trong khoảng từ -screenWidth đến screenWidth
         Vector3 pos = transform.position;
-        pos.x = Mathf.Clamp(pos.x, -10f, 10f);
+        pos.x = Mathf.Clamp(pos.x, -screenWidth, screenWidth);
         transform.position = pos;
     }
 

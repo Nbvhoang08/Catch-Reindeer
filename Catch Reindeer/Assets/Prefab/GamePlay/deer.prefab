@@ -122,7 +122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   verticalAmplitude: 0.5
-  verticalFrequency: 1
+  verticalFrequency: 2
+  spawner: {fileID: 0}
 --- !u!61 &3009613810617338420
 BoxCollider2D:
   m_ObjectHideFlags: 0
