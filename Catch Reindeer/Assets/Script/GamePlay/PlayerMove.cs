@@ -18,6 +18,7 @@ public class PlayerMove : MonoBehaviour
 
     // Input cooldown tracking
     private float lastMoveTime;
+  
     public float horizontalInput;
     private bool isJumpRequested;
     private bool isGrounded;
