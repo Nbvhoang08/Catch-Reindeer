@@ -38,7 +38,6 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2122,7 +2121,7 @@ Transform:
   m_GameObject: {fileID: 1035085823}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.25, y: -3.95, z: 0}
+  m_LocalPosition: {x: -5.25, y: -3.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2141,7 +2140,6 @@ GameObject:
   - component: {fileID: 1065746171}
   - component: {fileID: 1065746170}
   - component: {fileID: 1065746174}
-  - component: {fileID: 1065746175}
   - component: {fileID: 1065746176}
   m_Layer: 0
   m_Name: Enemies
@@ -2273,9 +2271,9 @@ Transform:
   m_GameObject: {fileID: 1065746169}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.59, y: -2.12, z: 0}
+  m_LocalPosition: {x: -7.01, y: -2.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2300,32 +2298,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1065746175
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1065746169}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 65a93806abca46142a17ab3a7e9b852f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Caught: 0
-  Cage: {fileID: 850213847}
-  moveSpeed: 4
-  jumpForce: 10
-  groundCheckDistance: 0.9
-  groundLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 128
-  maxHorizontalJumpDistance: 7
-  Target: {fileID: 503804113}
-  currentStrategy: 0
 --- !u!114 &1065746176
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2348,9 +2320,9 @@ MonoBehaviour:
   updateInterval: 0.5
   maxNodes: 10
   path:
+  - {fileID: 1855076444}
   - {fileID: 963895007}
   - {fileID: 1035085825}
-  - {fileID: 1855076444}
 --- !u!1 &1135392129
 GameObject:
   m_ObjectHideFlags: 0
@@ -2413,7 +2385,7 @@ Camera:
   far clip plane: 1000
   field of view: 60.000004
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 6.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -2462,8 +2434,8 @@ MonoBehaviour:
   _mainAreaHeight: 1
   _verticalFOV: 60
   _horizontalFOV: 88.9299
-  _verticalSize: 5
-  _horizontalSize: 8.5
+  _verticalSize: 6.5
+  _horizontalSize: 11.05
 --- !u!1 &1250240338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3147,7 +3119,7 @@ Transform:
   m_GameObject: {fileID: 1855076442}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.35, y: -3.95, z: 0}
+  m_LocalPosition: {x: -2.35, y: -3.54, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
