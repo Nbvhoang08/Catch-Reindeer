@@ -81,7 +81,7 @@ public class Deer : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player") && !isCaught && !collision.GetComponent<Charecter>().Caught)
+        if ((collision.CompareTag("Player")|| collision.CompareTag("Enemy")) && !isCaught && !collision.GetComponent<Charecter>().Caught)
         {
             isCaught = true;
             player = collision.GetComponent<Charecter>();

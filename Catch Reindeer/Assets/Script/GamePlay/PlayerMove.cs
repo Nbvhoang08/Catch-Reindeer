@@ -23,11 +23,12 @@ public class PlayerMove :  Charecter
     private bool isJumpRequested;
     private bool isGrounded;
 
-    void Start()
+   void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        numDeer = 0;
     }
 
     void Update()

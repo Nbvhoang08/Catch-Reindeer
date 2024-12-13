@@ -9,13 +9,13 @@ public class BouncingPad : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")|| collision.gameObject.CompareTag("Enemy"))
         {
-            Rigidbody2D playerRb = collision.gameObject.GetComponent<Rigidbody2D>();
-            if (playerRb != null)
+            Rigidbody2D Rb = collision.gameObject.GetComponent<Rigidbody2D>();
+            if (Rb != null)
             {
                 // Đẩy người chơi lên
-                playerRb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
+                Rb.AddForce(Vector2.up * bounceForce, ForceMode2D.Impulse);
                 SoundManager.Instance.PlayVFXSound(3);
                 // Kích hoạt hiệu ứng đệm nhún
                 if (padAnimator != null)
